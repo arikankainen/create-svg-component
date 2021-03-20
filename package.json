@@ -1,0 +1,17 @@
+{
+    "name": "screate-svg-component",
+    "version": "1.0.0",
+    "description": "Converts normal svg file to react-native-svg component",
+    "main": "src/index.ts",
+    "dependencies": {
+        "fs": "0.0.1-security"
+    },
+    "devDependencies": {
+        "@types/node": "^14.14.35"
+    },
+    "scripts": {
+        "test": "ts-node src/index.ts --in X:/Download/test/svg-new --out X:/Download/test/svg-converted --move X:/Download/test/svg-old"
+    },
+    "author": "Ari Kankainen",
+    "license": "MIT"
+}

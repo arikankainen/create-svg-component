@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react-native",
+        "lib": ["dom", "esnext"],
+        "moduleResolution": "node",
+        "noEmit": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "strict": true,
+        "plugins": [
+            {
+                "NOTE": "https://github.com/microsoft/typescript-styled-plugin/issues/58",
+                "name": "typescript-styled-plugin",
+                "lint": {
+                    "validProperties": [
+                        "aspect-ratio",
+                        "box-shadow",
+                        "elevation",
+                        "margin-vertical",
+                        "margin-horizontal",
+                        "padding-horizontal",
+                        "padding-vertical",
+                        "resize-mode",
+                        "shadow-color",
+                        "shadow-opacity",
+                        "shadow-offset",
+                        "shadow-radius",
+                        "text-align-vertical",
+                        "tint-color"
+                    ]
+                }
+            }
+        ]
+    },
+    "exclude": ["node_modules", "__mocks__"]
+}
