@@ -243,7 +243,7 @@ export const addTabs = (input: string, tabSize: number) => {
         lastTagType = tagType;
     }
 
-    return lines.join('\n');
+    return lines.join('\n').trimEnd();
 };
 
 export const createComponent = (svg: string, name: string, template: string) => {
