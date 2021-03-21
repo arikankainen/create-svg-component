@@ -7,9 +7,3 @@ export interface Settings {
     template: string;
     overwrite: boolean;
 }
-
-export interface CreateComponent {
-    svg: string;
-    name: string;
-    template: string;
-}
