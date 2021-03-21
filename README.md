@@ -1,8 +1,88 @@
 # create-svg-component
 
-Converts normal svg file to react-native-svg component
+Converts normal SVG file to react-native-svg component.
 
 # Usage
 
+```
 ts-node src/index.ts --in inputFolder --out outputFolder --move moveFolder --suffix Svg --tabSize 4
 --template templateFolder/svg.template --overwrite
+```
+
+# Command line switches
+
+| Switch     | Action                                                                   |
+| ---------- | ------------------------------------------------------------------------ |
+| --in       | Input folder where are all the unprocessed SVG files.                    |
+| --out      | Output folder where all converted components will be saved.              |
+| --move     | Folder where original SVG files are moved when they are converted.       |
+| --suffix   | Piece of text that is added to the end of component's name and filename. |
+| --tabSize  | How many spaces are used as one tab when indentating tags.               |
+| --template | File that contains template for React stuff.                             |
+
+### Example template file (svg.template)
+
+```javascript
+import * as React from 'react';
+import Svg, { %tags% } from 'react-native-svg';
+import { SvgProps } from '../../types/types';
+
+const %name%: React.FC<SvgProps> = (props) => {
+    return (
+        %svg%
+    );
+};
+
+export default %name%;
+```
+
+`%tags%` will be replaced by the tags that SVG uses (eg. Path, Circle, G).\
+`%name%` will be replaced by the component name.\
+`%svg%` will be replaced by the converted content of the original SVG file.
+
+---
+
+### Example SVG file (user-icon.svg)
+
+```javascript
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<g>
+	<g>
+		<path d="M437.02,330.98c-27.883-27.882-61.071-48.523-97.281-61.018C378.521,243.251,404,198.548,404,148
+			C404,66.393,337.607,0,256,0S108,66.393,108,148c0,50.548,25.479,95.251,64.262,121.962
+			c-36.21,12.495-69.398,33.136-97.281,61.018C26.629,379.333,0,443.62,0,512h40c0-119.103,96.897-216,216-216s216,96.897,216,216
+			h40C512,443.62,485.371,379.333,437.02,330.98z M256,256c-59.551,0-108-48.448-108-108S196.449,40,256,40
+			c59.551,0,108,48.448,108,108S315.551,256,256,256z"/>
+	</g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+```
+
+### Converted react-native-svg component file (UserIconSvg.tsx)
+
+```javascript
+import * as React from 'react';
+import Svg, { G, Path } from 'react-native-svg';
+import { SvgProps } from '../../types/types';
+
+const UserIconSvg: React.FC<SvgProps> = (props) => {
+    return (
+        <Svg x="0px" y="0px" viewBox="0 0 512 512" {...props}>
+            <G>
+                <G>
+                    <Path d="M437.02,330.98c-27.883-27.882-61.071-48.523-97.281-61.018C378.521,243.251,404,198.548,404,148 C404,66.393,337.607,0,256,0S108,66.393,108,148c0,50.548,25.479,95.251,64.262,121.962 c-36.21,12.495-69.398,33.136-97.281,61.018C26.629,379.333,0,443.62,0,512h40c0-119.103,96.897-216,216-216s216,96.897,216,216 h40C512,443.62,485.371,379.333,437.02,330.98z M256,256c-59.551,0-108-48.448-108-108S196.449,40,256,40 c59.551,0,108,48.448,108,108S315.551,256,256,256z" />
+                </G>
+            </G>
+        </Svg>
+    );
+};
+
+export default UserIconSvg;
+```
