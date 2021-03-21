@@ -2,23 +2,23 @@
 
 Converts normal SVG file to react-native-svg component.
 
-# Usage
+## Usage
 
 ```
 ts-node src/index.ts --in inputFolder --out outputFolder --move moveFolder --suffix Svg --tabSize 4
 --template templateFolder/svg.template --overwrite
 ```
 
-# Command line switches
+## Command line switches
 
-| Switch     | Action                                                                   |
-| ---------- | ------------------------------------------------------------------------ |
-| --in       | Input folder where are all the unprocessed SVG files.                    |
-| --out      | Output folder where all converted components will be saved.              |
-| --move     | Folder where original SVG files are moved when they are converted.       |
-| --suffix   | Piece of text that is added to the end of component's name and filename. |
-| --tabSize  | How many spaces are used as one tab when indentating tags.               |
-| --template | File that contains template for React stuff.                             |
+| Switch      | Action                                                                   |
+| ----------- | ------------------------------------------------------------------------ |
+| --in        | Input folder where are all the unprocessed SVG files.                    |
+| --out       | Output folder where all converted components will be saved.              |
+| --move      | Folder where original SVG files are moved when they are converted.       |
+| --suffix    | Piece of text that is added to the end of component's name and filename. |
+| --tabSize   | How many spaces are used as one tab when indentating tags.               |
+| --template  | File that contains template for React stuff.                             |
 
 ### Example template file (svg.template)
 
@@ -65,7 +65,7 @@ export default %name%;
 </svg>
 ```
 
-### Converted react-native-svg component file (UserIconSvg.tsx)
+### Converted component file (UserIconSvg.tsx)
 
 ```javascript
 import * as React from 'react';
