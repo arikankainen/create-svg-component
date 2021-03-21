@@ -1,11 +1,11 @@
 import * as React from 'react';
-import Svg, { %elements% } from 'react-native-svg';
+import Svg, { %tags% } from 'react-native-svg';
 import { SvgProps } from '../../types/types';
 
-const %name%Svg: React.FC<SvgProps> = (props) => {
+const %name%: React.FC<SvgProps> = (props) => {
     return (
         %svg%
     );
 };
 
-export default %name%Svg;
+export default %name%;
