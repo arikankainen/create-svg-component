@@ -5,8 +5,7 @@ Converts normal SVG file to react-native-svg component.
 ## Usage
 
 ```
-ts-node src/index.ts --in inputFolder --out outputFolder --move moveFolder --suffix Svg --tabSize 4
---template templateFolder/svg.template --overwrite
+ts-node src/index.ts --in inputFolder --out outputFolder --move moveFolder --suffix Svg --tabSize 4 --template templateFolder/svg.template --overwrite
 ```
 
 ## Command line switches
@@ -19,6 +18,7 @@ ts-node src/index.ts --in inputFolder --out outputFolder --move moveFolder --suf
 | --suffix    | Piece of text that is added to the end of component's name and filename. |
 | --tabSize   | How many spaces are used as one tab when indentating tags.               |
 | --template  | File that contains template for React stuff.                             |
+| --overwrite | Overwrites existing files.                                               |
 
 ### Example template file (svg.template)
 
