@@ -5,7 +5,7 @@ const pipeline = util.promisify(require('stream').pipeline);
 const readdir = util.promisify(fs.readdir);
 const unlink = util.promisify(fs.unlink);
 
-import { CreateComponent, Settings } from './types';
+import { Settings } from './types';
 
 export const logError = (error: any) => {
     console.error('ERROR:', error);
@@ -16,7 +16,7 @@ export const createDirectory = (dir: string) => {
         if (dir && !fs.existsSync(dir)) {
             fs.mkdirSync(dir, { recursive: true });
         }
-    } catch (error: any) {
+    } catch (error) {
         logError(error);
     }
 };
@@ -76,7 +76,7 @@ export const parseArgs = (args: string[]): Settings => {
 export const getFiles = async (dir: string) => {
     try {
         return (await readdir(dir)) as string[];
-    } catch (error: any) {
+    } catch (error) {
         logError(error);
         return [];
     }
